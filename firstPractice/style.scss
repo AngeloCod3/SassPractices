@@ -1,0 +1,52 @@
+$primary-color: red;
+$secondary-color: #a87b7b;
+
+
+@mixin btn-border () {
+    border: 2px solid;
+    border-radius: 10px;
+    
+}
+
+@mixin text-color ($color, $size, $bold) {
+    color: $color;
+    font-size: $size;
+    font-weight: $bold;
+
+    @if ($bold == 'true') {
+        font-weight: 600;
+    }
+
+}
+
+body {
+    background-color: lightgray;
+    ul{
+        li{
+            display: inline-block;
+            list-style: none;
+            padding: 15px;
+            @include btn-border();
+            &:hover {
+                color: $secondary-color;
+                @include btn-border();
+            }
+
+            a{
+                text-decoration: none;
+                color: $primary-color;
+
+                &:hover {
+                    color: $secondary-color;
+                   
+                }
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        @include text-color(black, 16px, 'true')
+    }
+}
+
