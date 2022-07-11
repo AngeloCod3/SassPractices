@@ -1,5 +1,9 @@
+@use 'cards';
+
+
 $primary-color: red;
 $secondary-color: #a87b7b;
+$background-color: lightblue;
 
 
 @mixin btn-border () {
@@ -14,13 +18,17 @@ $secondary-color: #a87b7b;
     font-weight: $bold;
 
     @if ($bold == 'true') {
+        font-weight: bold;
+    }
+
+    @if ($bold == 'false') {
         font-weight: 600;
     }
 
 }
 
 body {
-    background-color: lightgray;
+    background-color: $background-color;
     ul{
         li{
             display: inline-block;
@@ -44,9 +52,11 @@ body {
         }
     }
 
-    p {
+    .main-text {
         text-align: center;
         @include text-color(black, 16px, 'true')
     }
+
+    
 }
 
